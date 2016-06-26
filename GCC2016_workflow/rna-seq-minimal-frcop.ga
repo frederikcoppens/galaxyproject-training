@@ -1,0 +1,184 @@
+{
+    "a_galaxy_workflow": "true", 
+    "annotation": "", 
+    "format-version": "0.1", 
+    "name": "RNA-seq minimal frcop", 
+    "steps": {
+        "0": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 0, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Forward Reads"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 201.5, 
+                "top": 163
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Forward Reads\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "23ca6327-d80b-4f7a-b96b-eb48cfbf6128", 
+            "workflow_outputs": []
+        }, 
+        "1": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 1, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "Reverse Reads"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 204.5, 
+                "top": 303
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"Reverse Reads\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "bd211448-b06f-42a9-87a4-45403feecb07", 
+            "workflow_outputs": []
+        }, 
+        "2": {
+            "annotation": "", 
+            "content_id": null, 
+            "id": 2, 
+            "input_connections": {}, 
+            "inputs": [
+                {
+                    "description": "", 
+                    "name": "GFF"
+                }
+            ], 
+            "label": null, 
+            "name": "Input dataset", 
+            "outputs": [], 
+            "position": {
+                "left": 195, 
+                "top": 465
+            }, 
+            "tool_errors": null, 
+            "tool_id": null, 
+            "tool_state": "{\"name\": \"GFF\"}", 
+            "tool_version": null, 
+            "type": "data_input", 
+            "uuid": "8f3102f9-bd17-4c1b-8ac3-c1754d48fdd0", 
+            "workflow_outputs": []
+        }, 
+        "3": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/iuc/hisat2/hisat2/1.0.1", 
+            "id": 3, 
+            "input_connections": {
+                "input_format|paired|reads_f": {
+                    "id": 0, 
+                    "output_name": "output"
+                }, 
+                "input_format|paired|reads_r": {
+                    "id": 1, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [], 
+            "label": null, 
+            "name": "HISAT2", 
+            "outputs": [
+                {
+                    "name": "output_alignments", 
+                    "type": "bam"
+                }
+            ], 
+            "position": {
+                "left": 519.5, 
+                "top": 243
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/iuc/hisat2/hisat2/1.0.1", 
+            "tool_shed_repository": {
+                "changeset_revision": "b1e25f9b5eab", 
+                "name": "hisat2", 
+                "owner": "iuc", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"alignment_options\": \"{\\\"__current_case__\\\": 0, \\\"alignment_options_selector\\\": \\\"defaults\\\"}\", \"input_format\": \"{\\\"paired\\\": {\\\"reads_r\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"paired_end_options\\\": {\\\"paired_end_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}, \\\"__current_case__\\\": 1, \\\"paired_selector\\\": \\\"paired\\\", \\\"reads_f\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}}, \\\"input_format_selector\\\": \\\"fastq\\\", \\\"__current_case__\\\": 1}\", \"__page__\": 0, \"max_primary\": \"\\\"5\\\"\", \"scoring_options\": \"{\\\"scoring_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}\", \"reference_genome\": \"{\\\"index\\\": \\\"Arabidopsis_thaliana_TAIR10_HISAT2\\\", \\\"reference_genome_source\\\": \\\"indexed\\\", \\\"__current_case__\\\": 0}\", \"spliced_options\": \"{\\\"spliced_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}\", \"paired_options\": \"{\\\"paired_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}\", \"__rerun_remap_job_id__\": null, \"input_options\": \"{\\\"input_options_selector\\\": \\\"defaults\\\", \\\"__current_case__\\\": 0}\"}", 
+            "tool_version": "1.0.1", 
+            "type": "tool", 
+            "uuid": "f1277108-7ecd-4702-9b47-f3eccb881f9b", 
+            "workflow_outputs": []
+        }, 
+        "4": {
+            "annotation": "", 
+            "content_id": "toolshed.g2.bx.psu.edu/repos/yhoogstrate/featurecounts/featurecounts/1.4.6.p5", 
+            "id": 4, 
+            "input_connections": {
+                "alignments": {
+                    "id": 3, 
+                    "output_name": "output_alignments"
+                }, 
+                "reference_gene_sets_source|reference_gene_sets": {
+                    "id": 2, 
+                    "output_name": "output"
+                }
+            }, 
+            "inputs": [
+                {
+                    "description": "runtime parameter for tool featureCounts", 
+                    "name": "reference_gene_sets_source"
+                }, 
+                {
+                    "description": "runtime parameter for tool featureCounts", 
+                    "name": "alignments"
+                }
+            ], 
+            "label": null, 
+            "name": "featureCounts", 
+            "outputs": [
+                {
+                    "name": "output", 
+                    "type": "tabular"
+                }, 
+                {
+                    "name": "output_summary", 
+                    "type": "tabular"
+                }
+            ], 
+            "position": {
+                "left": 807.5, 
+                "top": 269
+            }, 
+            "post_job_actions": {}, 
+            "tool_errors": null, 
+            "tool_id": "toolshed.g2.bx.psu.edu/repos/yhoogstrate/featurecounts/featurecounts/1.4.6.p5", 
+            "tool_shed_repository": {
+                "changeset_revision": "e04fbcc4e91a", 
+                "name": "featurecounts", 
+                "owner": "yhoogstrate", 
+                "tool_shed": "toolshed.g2.bx.psu.edu"
+            }, 
+            "tool_state": "{\"__page__\": 0, \"reference_gene_sets_source\": \"{\\\"reference_gene_sets\\\": {\\\"__class__\\\": \\\"RuntimeValue\\\"}, \\\"__current_case__\\\": 1, \\\"source_select\\\": \\\"history\\\"}\", \"format\": \"\\\"tabdel_short\\\"\", \"__rerun_remap_job_id__\": null, \"alignments\": \"{\\\"__class__\\\": \\\"RuntimeValue\\\"}\", \"extended_parameters\": \"{\\\"__current_case__\\\": 0, \\\"parameters\\\": \\\"default\\\"}\"}", 
+            "tool_version": "1.4.6.p5", 
+            "type": "tool", 
+            "uuid": "d78f2c44-8d08-41ed-8ae4-b571143baafb", 
+            "workflow_outputs": []
+        }
+    }, 
+    "uuid": "3679e00f-6302-45aa-b199-97a1dc7cbc18"
+}

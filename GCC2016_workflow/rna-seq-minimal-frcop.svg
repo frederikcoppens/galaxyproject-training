@@ -1,0 +1,150 @@
+
+
+
+
+<!DOCTYPE HTML>
+<html>
+    <!--base.mako-->
+    
+
+
+    <head>
+        <title></title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link rel="index" href="/"/>
+        
+        
+    <link href="/static/style/base.css?v=1466901476" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/static/style/bootstrap-tour.css?v=1466901476" media="screen" rel="stylesheet" type="text/css" />
+
+        
+    
+
+    <script src="/static/scripts/bundled/libs.bundled.js?v=1466901476" type="text/javascript"></script>
+<script src="/static/scripts/libs/require.js?v=1466901476" type="text/javascript"></script>
+<script src="/static/scripts/libs/bootstrap-tour.js?v=1466901476" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        window.Galaxy = window.Galaxy || {};
+        window.Galaxy.root = '/';
+        window.Galaxy.config = {};
+
+        // configure require
+        // due to our using both script tags and require, we need to access the same jq in both for plugin retention
+        // source http://www.manuel-strehl.de/dev/load_jquery_before_requirejs.en.html
+        define( 'jquery', [], function(){ return jQuery; })
+        // TODO: use one system
+
+        // shims and paths
+        require.config({
+            baseUrl: "/static/scripts",
+            shim: {
+                "libs/underscore": {
+                    exports: "_"
+                },
+                "libs/backbone": {
+                    deps: [ 'jquery', 'libs/underscore' ],
+                    exports: "Backbone"
+                }
+            },
+            // cache busting using time server was restarted
+            urlArgs: 'v=1466901502'
+        });
+    </script>
+
+
+
+    
+    
+    <script type="text/javascript">
+        if ( parent.handle_minwidth_hint )
+        {
+            parent.handle_minwidth_hint( -1 );
+        }
+    </script>
+
+        
+    
+    
+    <script type="text/javascript">
+        //TODO: global...
+        define( 'bootstrapped-data', function(){
+            return window.bootstrapped;
+        });
+    </script>
+
+    <script type="text/javascript">
+        require([ 'require', 'galaxy' ], function( require, galaxy ){
+            //TODO: global...
+            window.Galaxy = new galaxy.GalaxyApp({
+                root    : '/',
+                config  : 
+    
+{
+"ftp_upload_site": "54.158.166.52", 
+"mailing_lists": "https://wiki.galaxyproject.org/MailingLists", 
+"nginx_upload_path": "/_upload", 
+"terms_url": null, 
+"enable_unique_workflow_defaults": true, 
+"wiki_url": "https://wiki.galaxyproject.org/", 
+"version_major": "16.04", 
+"support_url": "https://wiki.galaxyproject.org/Support", 
+"remote_user_logout_href": null, 
+"message_box_content": null, 
+"logo_src": "/static/images/galaxyIcon_noText.png", 
+"biostar_url_redirect": "http://54.158.166.52/biostar/biostar_redirect", 
+"message_box_visible": false, 
+"lims_doc_url": "https://usegalaxy.org/u/rkchak/p/sts", 
+"logo_url": "/", 
+"require_login": false, 
+"search_url": "http://galaxyproject.org/search/usegalaxy/", 
+"screencasts_url": null, 
+"ga_code": null, 
+"brand": null, 
+"ftp_upload_dir": "/mnt/galaxy/tmp/ftp", 
+"inactivity_box_content": null, 
+"citation_url": "https://wiki.galaxyproject.org/CitingGalaxy", 
+"allow_user_creation": true, 
+"is_admin_user": false, 
+"allow_user_dataset_purge": true, 
+"biostar_url": null, 
+"datatypes_disable_auto": false, 
+"use_remote_user": false, 
+"message_box_class": "info"
+}
+,
+                user    : 
+    
+{
+"quota_percent": null, 
+"nice_total_disk_usage": "0 bytes", 
+"total_disk_usage": 0
+}
+,
+            }, window.bootstrapped );
+
+        });
+    </script>
+
+
+    </head>
+    <body class="inbound">
+        
+    
+    <div class="errormessagelarge" style="margin: 1em">You must be <a target="galaxy_main" href="/user/login?webapp=galaxy">logged in</a> to use Galaxy workflows.</div>
+
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
