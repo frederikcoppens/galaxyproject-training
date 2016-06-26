@@ -6,6 +6,9 @@ What it does
 
 Map reads and quantify
 
+.. image:: https://github.com/frederikcoppens/galaxyproject-training/blob/master/GCC2016_workflow/rna-seq-minimal-frcop.svg
+
+
 Dependencies
 ============
 
