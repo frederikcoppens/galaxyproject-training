@@ -1,0 +1,308 @@
+name: RNA-seq minimal example
+description: a minimal example as proof-of-concept for tutorials in Galaxy
+title_default: "RNA-seq minimal"
+steps:
+#    - title: "A tutorial on RNA Sequencing"
+#      content: "This tour will walk you through the process of RNA sequencing.<br><br>
+#                Read and Follow the instructions before clicking 'Next'<br>
+#                Click 'Prev' in case you missed out on any step"
+#      backdrop: true
+#
+#    - title: "Create a new history"
+#      element: '#history-options-button'
+#      intro: "Let's start by creating a new history:<br>
+#              (History options :: Create New)"
+#      position: "left"
+#
+#    - title: "Rename history"
+#      element: "#current-history-panel > div.controls > div.title > div"
+#      intro: "Change the name of the new history to 'RNA-seq'."
+#      position: "bottom"
+#
+#    - title: "Data Acquisition"
+#      content: "We will start with a pair of FastQ files.<br>"
+#      backdrop: true
+
+    - title: "Data Acquisition"
+      element: ".upload-button"
+      intro: "We will import RNAseq data into the history we just created.
+              Click 'Next' and the tour will take you to the Upload screen"
+      position: "right"
+      postclick:
+            - ".upload-button"
+
+    - title: "<b>Data Acquisition</b>"
+      element: "button#btn-new"
+      intro: "The sample training data available on github is a good place to start.<br><br>
+             Simply click <b>'Next'</b> and the links to the training data will be automatically inserted and ready for upload.<br><br>
+             Later on, when you want to upload other data, you can do so by clicking the <b>'Paste/Fetch Data'</b> button."
+      position: "top"
+      postclick:
+            - "button#btn-new"
+       
+    - title: "<b>Data Acquisition</b>"
+      element: "textarea#text-content"
+      intro: "Links Acquired !"
+      position: "top"
+      textinsert: |
+             https://github.com/galaxy-scientists/galaxyproject-training/blob/master/GCC2016_workflow/test-data/seedling_B1.subset.1.fastq  
+             https://github.com/galaxy-scientists/galaxyproject-training/blob/master/GCC2016_workflow/test-data/seedling_B1.subset.2.fastq
+      
+    - title: "<b>Data Acquisition</b>"
+      element: "button#btn-start"
+      intro: "Click on <b>'Start'</b> to upload the data into your Galaxy history."
+      position: "top"
+      postclick:
+        - "button#btn-start"
+
+    - title: "<b>Data Acquisition</b>"
+      element: "button#btn-close"
+      intro: "The upload may take awhile.<br><br>
+             Hit the <b>close</b> button when you see that the files are uploaded into your history."
+      position: "top"
+      postclick:
+        - "button#btn-close"
+     
+#    - title: "<b>Data Acquisition</b>"
+#      element: "#current-history-panel > div.controls"
+#      intro: "You've acquired your data. Now let's <b>'Edit Attributes'</b> of the uploaded files.<br><br>
+#             We will edit the following attributes of the uploaded files:                         
+#                <dir>
+#                <b>
+#                  <li>File names</li>
+#                  <li>Database/Build</li>
+#                </b>
+#                </dir>"
+#      position: "left" 
+#
+#    - title: "<b>Editing Attributes</b>"
+#      element: "#current-history-panel > div.controls"
+#      intro: "For each of the 3 uploaded files:<br>
+#               1. Click on the pencil icon beside the file to <b>'Edit Attributes'</b>.<br><br>
+#              2. In the <b>'Attributes'</b> tab:<br>
+#                 - Edit the name (xxx).<br>
+#                 - Set Database/Build as <b>'Arabidopsis'</b>.<br><br>"
+#      position: "left" 
+#     
+#    - title: "<b>Data Acquisition Complete !</b>"
+#      content: "Now that your data is ready, let's use some tools.<br>"
+#      backdrop: true
+
+# DATA LIBRARY
+
+    - title: 'Shared data'
+      element: "#shared"
+      intro: "Get access to all <b>Workflows</b>, <b>Histories</b>, <b>Pages</b>, <b>Visualizations</b> and your <b>Data Library</b> that are shared with you."
+      position: "bottom"
+
+    - title: 'Shared data'
+      element: "#shared"
+      intro: "Go to shared data:"
+      position: "right"
+      postclick:
+        - "#shared .dropdown-toggle"
+
+    - title: 'Shared data'
+      element: "#shared .dropdown-menu li:nth-child(1)"
+      intro: "Select data libraries"
+      position: "right"
+      postclick:
+        - "#shared .dropdown-menu li:nth-child(1) a"
+
+#    - title: 'Shared data'
+#      element: "#library_list_body table tr:first"
+#      intro: "Select data libraries"
+#      position: "left"
+#      postclick:
+#        - "#library_list_body table tr:first a"
+
+
+    - title: 'To be continued'
+      position: "center"
+
+
+
+#     - title: "Data Acquisition"
+#       element: "button#btn-start"
+#       intro: "Click on 'Start' to upload the data into your Galaxy history."
+#       position: "bottom"
+#       
+#     - title: "Data Acquisition"
+#       element: "button#btn-close"
+#       intro: "The upload may take awhile.<br>
+#               Hit the close button when you see that the files are uploaded into your history."
+#       position: "bottom"
+#       
+#     - title: "Data Acquisition"
+#       element: '#current-history-panel'
+#       intro: "You've acquired your data.<br>
+#               Now let's 'Edit Attributes' of the uploaded files.<br>
+#               We will learn to edit the name, Database/Build and Datatype of all these files.<br><br>
+#               For each of the uploaded files:<br>
+#                1. Click on the pencil icon beside the file to 'Edit Attributes'.<br>
+#                2. In the 'Attributes' tab:<br>
+#                   - Edit the name (Barcode / Lane1 as appropriate).<br>"
+#       position: "left" 
+#       
+#     - title: "Data Acquisition Complete !"
+#       content: "Now that your data is ready, let's use some tools.<br>"
+#       backdrop: true
+# 
+#     - title: "NGS: Building Loci from RAD"
+#       element: '#tool-search-query'
+#       intro: "RAD Sequencing uses various tools.<br>
+#               Available tools appear here in the tool menu."
+#       position: "right"
+#       
+#     - title: "Building loci from RAD"
+#       element: '#tool-search-query'
+#       intro: "You can use 'tool search' to locate tools.<br>
+#               For starters, click 'Next' and the tour will bring up the 'STACKS' tools for you.<br>
+#               Tools may take a couple of moments to load, please bear with us."
+#       position: "right"
+# 
+#     - title: "Building loci with 'STACKS'"
+#       intro: "This is the STACKS Process Radtag tool.<br>"
+#       position: "right"
+#       preclick:
+#         - 'a[href$="/tool_runner?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fcmonjeau%2Fstacks%2FSTACKSprocrad%2F1.1.0"]'
+#       postclick:
+#         - "#title_stats a"
+# 
+#     - element: '#uid-0'
+#       intro: "Have a look at the tool's parameters.<br>     
+#               Please select the first dataset as raw sequencing lane FastQ file(s).<br>
+#               You can choose basic setting and provide barcodes as restriction anzyme name(s).<br>
+#               Have a look at the advanced settings, to get an impression of how powerful it can be.<br> 
+#               Click next and the tour will 'Execute' the Process RADtags tool for you."
+#       position: "right"
+#       
+#     - title: "Treat your raw data with 'Process RADtags'"
+#       element: '#current-history-panel'
+#       intro: "Congratulations, you have created you first demultiplexed FastQ Files file.<br>
+#               It will remain stored in your history.<br>
+#               It contains your RADtags sequences by sample.<br>
+#               Click the 'eye' icon to view the data."
+#       position: "left"
+#       preclick:
+#         - '#execute'
+# 
+#     - title: "Treat your raw data with 'Process RADtags'"
+#       element: '#current-history-panel'
+#       intro: "Further information on your log file:<br>
+#               How many raw reads were initially on the file(s)? How many have been retained? Why some were not retained?. <br/>"
+#       position: "left"
+# 
+# 
+#     - title: "Building loci & detect SNP with 'denovo_map'"
+#       intro: "This is the STACKS denovo_map tool.<br>"
+#       position: "right"
+#       preclick:
+#         - 'a[href$="/tool_runner?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fcmonjeau%2Fstacks%2FSTACKSdenovomap%2F1.0.0"]'
+#       postclick:
+#         - "#title_stats a"
+# 
+#     - title: "Reference genome data Acquisition"
+#       element: ".upload-button"
+#       intro: "We will import Reference genome data into the history we just created.<br>
+#               Click 'Next' and the tour will take you to the Upload screen"
+#       position: "right"
+#       postclick:
+#         - ".upload-button"
+# 
+#     - title: "Data Acquisition"
+#       element: "button#btn-new"
+#       intro: "The sample training data available on Shared data is a good place to start.<br>
+#               Simple click 'Next' and the links to the training data will be automatically inserted and ready for upload.<br>
+#               Later on, when want to upload other data, you can do so by clicking the 'Paste/Fetch Data' button"
+#       position: "top"
+#       postclick:
+#         - "button#btn-new"
+# 
+#     - title: "Data Acquisition"
+#       element: "textarea#text-content"
+#       intro: "Links Acquired !"
+#       position: "top"
+#       textinsert: |
+#         http://emme.genouest.org/pydio/data/public/7c8106?dl=true&file=/06d27256b0/Reference_genome_11_chromosomes
+#     - title: "Data Acquisition"
+#       element: "button#btn-start"
+#       intro: "Click on 'Start' to upload the data into your Galaxy history."
+#       position: "bottom"
+# 
+#     - title: "Data Acquisition"
+#       element: "button#btn-close"
+#       intro: "The upload may take awhile.<br>
+#               Hit the close button when you see that the file is uploaded into your history."
+#       position: "bottom"
+# 
+#     - title: "Data Acquisition"
+#       element: '#current-history-panel'
+#       intro: "You've acquired your data.<br>
+#               Now let's 'Edit Attributes' of the uploaded files.<br>
+#               We will learn to edit the name, Database/Build and Datatype of all these files.<br><br>
+#               For each of the uploaded files:<br>
+#                1. Click on the pencil icon beside the file to 'Edit Attributes'.<br>
+#                2. In the 'Attributes' tab:<br>
+#                   - Edit the name (Barcode / Lane1 as appropriate).<br>"
+#       position: "left"
+# 
+#     - title: "Building loci with 'STACKS'"
+#       intro: "This is the STACKS ref_map tool.<br>"
+#       position: "right"
+#       preclick:
+#         - 'a[href$="/tool_runner?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fcmonjeau%2Fstacks%2FSTACKSrefmap%2F1.0.0"]'
+#       postclick:
+#         - "#title_stats a"
+# 
+#     - title: "Building loci with 'STACKS'"
+#       intro: "This is the STACKS population tool.<br>"
+#       position: "right"
+#       preclick:
+#         - 'a[href$="/tool_runner?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fcmonjeau%2Fstacks%2FSTACKSpopulation%2F1.0.0"]'
+#       postclick:
+#         - "#title_stats a"
+# 
+#     - title: "Building loci with 'STACKS'"
+#       intro: "This is the STACKS genotypes tool.<br>"
+#       position: "right"
+#       preclick:
+#         - 'a[href$="/tool_runner?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fcmonjeau%2Fstacks%2FSTACKSgenotypes%2F1.0.0"]'
+#       postclick:
+#         - "#title_stats a"
+# 
+#     - title: "Building loci with 'STACKS'"
+#       intro: "This is the STACKS assemble_paired_reads tool.<br>"
+#       position: "right"
+#       preclick:
+#         - 'a[href$="/tool_runner?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fcmonjeau%2Fstacks%2FSTACKSassembleperead%2F1.1.1"]'
+#       postclick:
+#         - "#title_stats a"
+# 
+#     - title: "Building loci with 'STACKS'"
+#       intro: "This is the BWA_for_STACKS tool.<br>"
+#       position: "right"
+#       preclick:
+#         - 'a[href$="/tool_runner?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fcmonjeau%2Fstacks%2Fbwa_wrapper_stacks%2F1.2.3"]'
+#       postclick:
+#         - "#title_stats a"
+# 
+#     - title: "Building loci with 'STACKS'"
+#       intro: "This is the STACKS Prepare_population_map tool.<br>"
+#       position: "right"
+#       preclick:
+#         - 'a[href$="/tool_runner?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fcmonjeau%2Fstacks%2FSTACKSpreparepopmap%2F1.0.0"]'
+#       postclick:
+#         - "#title_stats a"
+# 
+#     - title: "A tutorial on RAD Sequencing"
+#       element: '#current-history-panel'
+#       intro: "You have reached the end of the tour.<br>
+#               You can look at interesting loci in your samples.<br>
+#       position: "left"
+#       preclick:
+#         - '#center-panel'     
+# 
+#     - title: "A tutorial on RAD Sequencing"
+#       intro: "Thank You for trying out our tutorial."
+#       backdrop: true     
